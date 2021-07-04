@@ -160,3 +160,8 @@ function Stopwatch() {
     },
   });
 }
+
+let watch = new Stopwatch();
+watch.start();
+watch.stop();
+watch.duration();
