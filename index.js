@@ -28,3 +28,17 @@ function createCircle(radius) {
 
 const newCircle = createCircle(1);
 newCircle.draw();
+
+//------------------------------------
+
+// Constructor Function
+
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("in constructor function");
+  };
+}
+
+const constructorCircle = new Circle(1);
+constructorCircle.draw();
