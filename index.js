@@ -42,3 +42,14 @@ function Circle(radius) {
 
 const constructorCircle = new Circle(1);
 constructorCircle.draw();
+
+//-------------------------------------
+
+// Adding and removing Object properties
+
+const anotherCircle = new Circle(10);
+anotherCircle.location = { x: 1 };
+const propertyName = "border-width";
+anotherCircle[propertyName] = 2;
+
+delete anotherCircle.location;
