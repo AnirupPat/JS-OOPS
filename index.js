@@ -1,3 +1,5 @@
+// Object Literal
+
 const circle = {
   radius: 1,
   location: {
@@ -10,3 +12,19 @@ const circle = {
 };
 
 circle.draw();
+
+//-----------------------------------
+
+// Factory Function
+
+function createCircle(radius) {
+  return {
+    radius,
+    draw: function () {
+      console.log("Its drawing now");
+    },
+  };
+}
+
+const newCircle = createCircle(1);
+newCircle.draw();
