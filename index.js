@@ -88,6 +88,7 @@ anotherCircle.computeOptimalLocation();
 function Car(width, height) {
   this.width = width;
   this.height = height;
+  let distanceCovered = { x: 0, y: 0 };
 
   forward = () => {
     console.log("move forward!");
@@ -102,7 +103,19 @@ function Car(width, height) {
     console.log("Lets drive now!");
     forward();
   };
+
+  Object.defineProperty(this, "distanceCovered", {
+    get: function () {
+      return distanceCovered;
+    },
+    set: function (value) {
+      if (!value.x || !value.y) throw new Error("Invalid ");
+      distanceCovered = value;
+    },
+  });
 }
 
-let sedan = new Car(40, 50);
+const sedan = new Car(40, 50);
+console.log(sedan.distanceCovered);
+sedan.distanceCovered = { x: 2, y: 3 };
 sedan.drive();
