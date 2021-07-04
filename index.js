@@ -119,3 +119,44 @@ const sedan = new Car(40, 50);
 console.log(sedan.distanceCovered);
 sedan.distanceCovered = { x: 2, y: 3 };
 sedan.drive();
+
+//--------------------------------------
+
+// Stopwatch
+
+function Stopwatch() {
+  let startTime,
+    endTime,
+    running,
+    duration = 0;
+
+  this.start = () => {
+    if (running) {
+      throw new Error("Stopwatch already started !");
+    }
+    running = true;
+    startTime = new Date();
+  };
+
+  this.end = () => {
+    if (!running) {
+      throw new Error("Stopwatch already stopped");
+    }
+    running = false;
+    endTime = new Date();
+    duration = (endTime.getTime() - startTime.getTime()) / 1000;
+  };
+
+  this.reset = () => {
+    startTime = null;
+    endTime = null;
+    running = false;
+    duration = 0;
+  };
+
+  Object.defineProperty(this, "duration", {
+    get: function () {
+      return duration;
+    },
+  });
+}
